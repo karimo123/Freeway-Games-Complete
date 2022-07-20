@@ -48,18 +48,7 @@ const GamesInfo = ({ games, addToCart,cart }) => {
                                         Summary
                                     </h3>
                                     <p className="game__summary--para">
-                                        Lorem ipsum dolor sit amet consectetur,
-                                        adipisicing elit. Quam nobis laudantium
-                                        iure reiciendis vitae quo non! Sequi, culpa
-                                        , earum praesentium, fugit hic possimus rem
-                                        totam minus aut ullam quae sunt?
-                                    </p>
-                                    <p className="game__summary--para">
-                                        Lorem ipsum dolor sit amet consectetur,
-                                        adipisicing elit. Quam nobis laudantium
-                                        iure reiciendis vitae quo non! Sequi, culpa
-                                        , earum praesentium, fugit hic possimus rem
-                                        totam minus aut ullam quae sunt?
+                                        {game.description}
                                     </p>
                                 </div>
                                 {
