@@ -73,6 +73,21 @@ button {
   cursor: pointer;
 }
 
+.summary__button--container
+{
+  display: flex;
+
+}
+
+.button__french{
+margin-top: 12px;
+margin-bottom: 12px;
+margin-left: 12px;
+font-size: 18px !important;
+padding: 4px 12px !important;
+
+}
+
 button:active {
   transform: translateY(1px);
 }
@@ -277,6 +292,10 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.lastQ {
+  margin-bottom: 32px;
 }
 
 .no-cursor {
@@ -613,6 +632,8 @@ select {
 }
 
 .game__summary {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 16px;
 }
 
@@ -786,6 +807,13 @@ h6{
 }
 
 .btn__checkout {
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 0;
+  background-color: red !important;
+}
+
+.btn__checkout__correct{
   width: 100%;
   font-size: 16px;
   padding: 12px 0;

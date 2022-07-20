@@ -9,13 +9,16 @@ import GamesInfo from "./Pages/GamesInfo";
 import Cart from "./Pages/Cart";
 import Confirmation from "./Pages/Confirmation";
 import AboutUs from "./Pages/AboutUs";
+import FAQ from "./Pages/FAQ";
 
 
 
 function App() {
 
   const [cart, setCart] = useState([])
+  const [copyCart, setCopyCart] = useState([])
   const [name,setName] = useState("")
+  
 
   function changeName(inputtedName){
     setName(inputtedName)
@@ -50,6 +53,11 @@ function App() {
     setCart(cart.filter(game => game.id !== item.id))
   }
 
+  function emptyCart(){
+    setCopyCart(cart)
+    setCart([])
+  }
+
 
   return (
     <Router>
@@ -59,9 +67,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/games" element={<Games games={games} />} />
           <Route path="/games/:id" element={<GamesInfo games={games} addToCart={addToCart} cart={cart} />} />
-          <Route path="/cart" element={<Cart cart={cart} removeItem={removeItem} changeQuantity={changeQuantity} changeName={changeName} />} />
-          <Route path="/confirmation" element={<Confirmation name={name} cart={cart} />} />
+          <Route path="/cart" element={<Cart name={name} cart={cart} removeItem={removeItem} changeQuantity={changeQuantity} changeName={changeName} emptyCart={emptyCart} />} />
+          <Route path="/confirmation" element={<Confirmation name={name} copyCart={copyCart} />} />
           <Route path="/aboutUs" element={<AboutUs />} />
+          <Route path="/FAQ" element={<FAQ />} />
+
         </Routes>
         <Footer />
       </div>

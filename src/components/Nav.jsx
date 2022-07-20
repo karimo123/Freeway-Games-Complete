@@ -34,6 +34,11 @@ const Nav = ({numberOfItems}) => {
                                 Contact Us
                             </Link>
                         </li>
+                        <li className="nav__list">
+                            <Link to="/FAQ" className="nav__link">
+                                FAQs
+                            </Link>
+                        </li>
                         <button className='btn__menu' onClick={openMenu}>
                             <FontAwesomeIcon icon="bars" />
                         </button>
@@ -69,6 +74,11 @@ const Nav = ({numberOfItems}) => {
                             <li className="menu__list" onClick={closeMenu}>
                                 <Link to="/aboutUs" className='menu__link' >
                                     Contact Us
+                                </Link>
+                            </li>
+                            <li className="menu__list" onClick={closeMenu}>
+                                <Link to="/aboutUs" className='menu__link' >
+                                    FAQs
                                 </Link>
                             </li>
                         </ul>

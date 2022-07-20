@@ -1,8 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import EmptyCart from "../assets/empty_cart.svg"
 
-const Cart = ({ name, cart, changeQuantity, removeItem, changeName }) => {
+const Cart = ({ name, cart, changeQuantity, removeItem, changeName, emptyCart }) => {
+    const [creditNum, setCreditNum] = useState("")
+
+    function changeCreditNum(value) {
+        setCreditNum(value)
+    }
 
     const total = () => {
         let price = 0
@@ -10,6 +15,9 @@ const Cart = ({ name, cart, changeQuantity, removeItem, changeName }) => {
             price += +((item.salePrice || item.originalPrice) * item.quantity)
         })
         return price
+    }
+    const emptyTheCart = () => {
+        emptyCart()
     }
 
     return (
@@ -77,11 +85,17 @@ const Cart = ({ name, cart, changeQuantity, removeItem, changeName }) => {
                             <div className="checkout__box">
                                 <div className="customer__info">
                                     <div className="information__input--wrapper">
-                                        <h6>Enter Credit Card Number:</h6>
-                                        <input type="text" className='information__input' />
+                                        <h6>Enter Credit Card Number (8 digits):</h6>
+                                        <input
+                                            type="text"
+                                            className='information__input'
+                                            maxLength={8}
+                                            value={creditNum}
+                                            onChange={(event) => changeCreditNum(event.target.value)}
+                                        />
                                     </div>
                                     <div className="information__input--wrapper">
-                                        <h6>Enter Full Name:</h6>
+                                        <h6>Enter Full Name (Mininmum 1 letter):</h6>
                                         <input
                                             type="text"
                                             className='information__input'
@@ -102,11 +116,17 @@ const Cart = ({ name, cart, changeQuantity, removeItem, changeName }) => {
                                         <span>Total</span>
                                         <span>${(total()).toFixed(2)}</span>
                                     </div>
-                                    <Link to="/confirmation">
-                                        <button className="btn btn__checkout" >
-                                            Purchase Game
-                                        </button>
-                                    </Link>
+                                    {
+                                       creditNum.length == 8 && name.length > 0  ?
+                                            <Link to="/confirmation">
+                                                <button onClick={emptyTheCart} className="btn btn__checkout__correct" >
+                                                    Purchase Game
+                                                </button>
+                                            </Link> :
+                                            <button className="btn btn__checkout no-cursor"  >
+                                                Purchase Game (Fill out blanks)
+                                            </button>
+                                    }
 
                                 </div>
                             </div>}

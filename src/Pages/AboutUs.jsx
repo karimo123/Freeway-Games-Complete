@@ -20,12 +20,11 @@ const AboutUs = () => {
                 </div>
                 <div className="our__story--container">
                     <h3>Our Story</h3>
-                    <p className='our__story--para info__piece'>Lorem ipsum dolor sit, amet co
-                        nsectetur adipisicing elit. Quod a
-                        ut voluptates, quos error incidunt par
-                        iatur iure eum exercitationem cupiditate
-                        vel omnis atque. Accusantium iste quaerat optio
-                        dicta vel, quibusdam eius.</p>
+                    <p className='our__story--para info__piece'>We are a group 
+                    of developers who developed this website with the idea of selling
+                     the best games for a good price. We grew up with video games 
+                     and we think that everyone should have the opportunity to play games 
+                     for a cheap price. This is why we always hold discounted games. </p>
                 </div>
             </div>
 
